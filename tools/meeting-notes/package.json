@@ -1,0 +1,22 @@
+{
+  "name": "@aiworkflow/meeting-notes",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "meeting-notes": "./src/cli.ts"
+  },
+  "scripts": {
+    "start": "node --import tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "extract": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@slack/bolt": "^4.2.0",
+    "@slack/web-api": "^7.9.1",
+    "@aiworkflow/shared": "workspace:*",
+    "googleapis": "^146.0.0",
+    "zod": "^3.24.2"
+  }
+}

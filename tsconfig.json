@@ -1,0 +1,9 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/shared" },
+    { "path": "slack-bots/triage-bot" },
+    { "path": "slack-bots/standup" },
+    { "path": "tools/meeting-notes" }
+  ]
+}

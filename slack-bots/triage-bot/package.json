@@ -1,0 +1,16 @@
+{
+  "name": "@aiworkflow/triage-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --import tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@slack/bolt": "^4.2.0",
+    "@aiworkflow/shared": "workspace:*",
+    "zod": "^3.24.2"
+  }
+}
