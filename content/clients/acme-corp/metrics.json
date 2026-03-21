@@ -1,0 +1,50 @@
+[
+  {
+    "automation_name": "Support Ticket Triage",
+    "metric": "Tickets Classified",
+    "value": 342,
+    "period": "Week 1"
+  },
+  {
+    "automation_name": "Support Ticket Triage",
+    "metric": "Tickets Classified",
+    "value": 418,
+    "period": "Week 2"
+  },
+  {
+    "automation_name": "Support Ticket Triage",
+    "metric": "Hours Saved",
+    "value": 12,
+    "period": "Week 1"
+  },
+  {
+    "automation_name": "Support Ticket Triage",
+    "metric": "Hours Saved",
+    "value": 15,
+    "period": "Week 2"
+  },
+  {
+    "automation_name": "Daily Standup Collector",
+    "metric": "Standups Collected",
+    "value": 45,
+    "period": "Week 1"
+  },
+  {
+    "automation_name": "Daily Standup Collector",
+    "metric": "Standups Collected",
+    "value": 48,
+    "period": "Week 2"
+  },
+  {
+    "automation_name": "Daily Standup Collector",
+    "metric": "Hours Saved",
+    "value": 5,
+    "period": "Week 1"
+  },
+  {
+    "automation_name": "Daily Standup Collector",
+    "metric": "Hours Saved",
+    "value": 5,
+    "period": "Week 2"
+  }
+]

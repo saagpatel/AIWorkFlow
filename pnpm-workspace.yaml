@@ -2,3 +2,4 @@ packages:
   - "packages/*"
   - "slack-bots/*"
   - "tools/*"
+  - "portal"

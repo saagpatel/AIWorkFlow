@@ -1,0 +1,12 @@
+{
+  "company": "Acme Corp",
+  "contact": {
+    "name": "Sarah Chen",
+    "email": "sarah@acmecorp.com",
+    "role": "VP of Operations"
+  },
+  "plan": "sprint",
+  "start_date": "2026-02-01",
+  "end_date": "2026-02-14",
+  "status": "active"
+}

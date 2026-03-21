@@ -1,0 +1,11 @@
+{
+  "company": "Demo Co",
+  "contact": {
+    "name": "Alex Rivera",
+    "email": "alex@demo.co",
+    "role": "Head of Engineering"
+  },
+  "plan": "audit",
+  "start_date": "2026-03-01",
+  "status": "active"
+}

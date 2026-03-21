@@ -2,7 +2,7 @@
   "name": "aiworkflow",
   "private": true,
   "scripts": {
-    "test": "vitest run",
+    "test": "vitest run && pnpm --filter @aiworkflow/portal test",
     "test:watch": "vitest",
     "typecheck": "tsc --build",
     "lint": "echo 'TODO: add eslint'"

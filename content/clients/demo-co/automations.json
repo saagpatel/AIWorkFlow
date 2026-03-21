@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Incident Triage",
+    "description": "AI-powered alert classification and severity routing for on-call engineers.",
+    "tool": "PagerDuty + Claude API",
+    "status": "building"
+  }
+]

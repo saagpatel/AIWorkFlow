@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Support Ticket Triage",
+    "description": "AI-powered classification of incoming support tickets by urgency and category, routing to the correct team automatically.",
+    "tool": "Slack Bot + Claude API",
+    "status": "active"
+  },
+  {
+    "name": "Daily Standup Collector",
+    "description": "Automated collection of team standup updates via Slack with AI-generated summary posted to #leadership.",
+    "tool": "Slack Bot",
+    "status": "active"
+  },
+  {
+    "name": "Meeting Notes Processor",
+    "description": "Converts raw meeting transcripts into structured action items, decisions, and follow-ups distributed via Slack.",
+    "tool": "Claude API + Slack",
+    "status": "building"
+  }
+]

@@ -6,3 +6,6 @@ coverage/
 .worktrees/
 .DS_Store
 *.tsbuildinfo
+.next/
+.env.local
+.claude/
