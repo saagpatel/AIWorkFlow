@@ -8,7 +8,7 @@
     "lint": "echo 'TODO: add eslint'"
   },
   "devDependencies": {
-    "typescript": "^5.7.3",
+    "typescript": "^6.0.2",
     "vitest": "^3.0.5",
     "tsx": "^4.19.2"
   }
