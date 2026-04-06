@@ -16,7 +16,7 @@
     "@slack/bolt": "^4.2.0",
     "@slack/web-api": "^7.9.1",
     "@aiworkflow/shared": "workspace:*",
-    "googleapis": "^146.0.0",
+    "googleapis": "^171.4.0",
     "zod": "^3.24.2"
   }
 }
