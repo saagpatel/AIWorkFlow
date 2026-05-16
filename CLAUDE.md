@@ -76,3 +76,65 @@ Portal routes:
 - Do NOT scope creep the portal into a SaaS product. It exists to look professional, not to generate recurring revenue.
 - Do NOT build all 20 Playbook templates — only build 3 (triage bot, standup collector, meeting notes) as portfolio pieces. The other 17 are documented approaches only.
 - Do NOT use raw HTTP for Slack bots. Use Slack Bolt SDK exclusively.
+
+<!-- portfolio-context:start -->
+# Portfolio Context
+
+## What This Project Is
+
+AIWorkFlow is an active local project in the /Users/d/Projects portfolio.
+
+## Current State
+
+**Phase 0: Sales Infrastructure** (Week 0) — OPERATIONAL, no Claude Code needed
+**Phase 1: Delivery Framework + Portfolio** (Weeks 1-2) — Claude Code Sessions 1-2
+- [ ] Build Slack Ticket Triage Bot (triage-bot/)
+- [ ] Build Daily Standup Collector (standup/)
+- [ ] Build Meeting Notes → Action Items tool (meeting-notes/)
+- [ ] Document all 3 templates with setup guides
+
+**Phase 2: Client Portal MVP** (Weeks 3-4) — Claude Code Sessions 3-4
+- [ ] Scaffold Next.js portal with App Router + Tailwind + shadcn/ui
+- [ ] Create dynamic client routes (overview, audit, automations, metrics)
+- [ ] Add per-client password protection via middleware
+- [ ] Deploy to Vercel with custom domain
+
+## Stack
+
+- Client Portal: Next.js 14.2+ (App Router) on Vercel
+- UI: Tailwind CSS + shadcn/ui
+- Data: Markdown files + JSON (NO database)
+- Charts: Recharts (for automation metrics)
+- Slack Bots: Slack Bolt SDK
+- AI: Claude API (for triage classification + meeting notes extraction)
+- Key dependencies: next, tailwindcss, @shadcn/ui, recharts, @slack/bolt, @anthropic-ai/sdk
+
+## How To Run
+
+```bash
+# Client portal (dev)
+cd portal && pnpm dev
+
+# Meeting notes extractor (CLI)
+cd tools/meeting-notes && pnpm extract ./notes.txt
+
+# Slack bots
+cd tools/meeting-notes && pnpm start
+cd slack-bots/triage-bot && pnpm start
+```
+
+## Known Risks
+
+- Do NOT add a database. If you find yourself writing `CREATE TABLE` or installing Supabase/Prisma, STOP and reassess. Client data is Markdown + JSON files.
+- Do NOT build a CRM, admin panel, or "consulting platform." Notion handles CRM. The portal is static files only.
+- Do NOT use server components for the portal. Static generation via `generateStaticParams` is sufficient.
+- Do NOT store client credentials or API keys. All automations deploy in the CLIENT's accounts.
+- Do NOT scope creep the portal into a SaaS product. It exists to look professional, not to generate recurring revenue.
+- Do NOT build all 20 Playbook templates — only build 3 (triage bot, standup collector, meeting notes) as portfolio pieces. The other 17 are documented approaches only.
+- Do NOT use raw HTTP for Slack bots. Use Slack Bolt SDK exclusively.
+
+## Next Recommended Move
+
+Use this context plus the README and supporting docs to resume the next active task, then promote the repo beyond minimum-viable by capturing a dedicated handoff, roadmap, or discovery artifact.
+
+<!-- portfolio-context:end -->
