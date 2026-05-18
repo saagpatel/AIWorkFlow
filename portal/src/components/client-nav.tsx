@@ -10,7 +10,7 @@ export function ClientNav({ clientSlug }: { clientSlug: string }) {
 
   return (
     <nav className="border-b">
-      <div className="container flex gap-1 overflow-x-auto px-6 py-2">
+      <div className="container flex flex-wrap gap-1 px-6 py-2 sm:flex-nowrap">
         {NAV_ITEMS.map((item) => {
           const href = `/${clientSlug}${item.href}`
           const isActive =

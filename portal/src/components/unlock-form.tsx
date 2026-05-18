@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { type FormEvent, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -16,15 +16,21 @@ export function UnlockForm() {
   const [error, setError] = useState<string | undefined>()
   const [isPending, setIsPending] = useState(false)
 
-  async function handleSubmit(formData: FormData) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
     setIsPending(true)
     setError(undefined)
-    const result = await unlockClient(null, formData)
-    setIsPending(false)
-    if (result?.error) {
-      setError(result.error)
-    } else {
-      router.push(redirectPath)
+
+    const formData = new FormData(event.currentTarget)
+    try {
+      const result = await unlockClient(null, formData)
+      if (result?.error) {
+        setError(result.error)
+      } else {
+        router.push(redirectPath)
+      }
+    } finally {
+      setIsPending(false)
     }
   }
 
@@ -39,7 +45,7 @@ export function UnlockForm() {
         </p>
       </CardHeader>
       <CardContent>
-        <form action={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input type="hidden" name="client" value={clientSlug} />
           <input type="hidden" name="redirect" value={redirectPath} />
           <Input
