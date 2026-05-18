@@ -3,3 +3,5 @@ packages:
   - "slack-bots/*"
   - "tools/*"
   - "portal"
+allowBuilds:
+  esbuild: true
