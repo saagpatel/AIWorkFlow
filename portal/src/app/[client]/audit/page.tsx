@@ -1,4 +1,5 @@
-import { getAuditContent, getClientSlugs } from "@/lib/content"
+import { notFound } from "next/navigation"
+import { getAuditContent, getClientSlugs, hasClientContent } from "@/lib/content"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
 
 export function generateStaticParams() {
@@ -11,6 +12,10 @@ export default async function AuditPage({
   params: Promise<{ client: string }>
 }) {
   const { client } = await params
+  if (!hasClientContent(client)) {
+    notFound()
+  }
+
   const content = getAuditContent(client)
 
   return (

@@ -1,4 +1,5 @@
-import { getMetrics, getClientSlugs } from "@/lib/content"
+import { notFound } from "next/navigation"
+import { getMetrics, getClientSlugs, hasClientContent } from "@/lib/content"
 import { MetricsChart } from "@/components/metrics-chart"
 
 export function generateStaticParams() {
@@ -11,6 +12,10 @@ export default async function MetricsPage({
   params: Promise<{ client: string }>
 }) {
   const { client } = await params
+  if (!hasClientContent(client)) {
+    notFound()
+  }
+
   const metrics = getMetrics(client)
 
   const grouped = new Map<string, typeof metrics>()

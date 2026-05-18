@@ -1,4 +1,5 @@
-import { getEngagement, getClientSlugs } from "@/lib/content"
+import { notFound } from "next/navigation"
+import { getEngagement, getClientSlugs, hasClientContent } from "@/lib/content"
 import { ClientNav } from "@/components/client-nav"
 import { StatusBadge } from "@/components/status-badge"
 import { FOOTER_TEXT, CALENDLY_PLACEHOLDER } from "@/lib/constants"
@@ -15,6 +16,10 @@ export default async function ClientLayout({
   params: Promise<{ client: string }>
 }) {
   const { client } = await params
+  if (!hasClientContent(client)) {
+    notFound()
+  }
+
   const engagement = getEngagement(client)
 
   return (

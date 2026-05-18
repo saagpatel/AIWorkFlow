@@ -1,4 +1,5 @@
-import { getAutomations, getClientSlugs } from "@/lib/content"
+import { notFound } from "next/navigation"
+import { getAutomations, getClientSlugs, hasClientContent } from "@/lib/content"
 import { AutomationRow } from "@/components/automation-row"
 
 export function generateStaticParams() {
@@ -11,6 +12,10 @@ export default async function AutomationsPage({
   params: Promise<{ client: string }>
 }) {
   const { client } = await params
+  if (!hasClientContent(client)) {
+    notFound()
+  }
+
   const automations = getAutomations(client)
 
   return (

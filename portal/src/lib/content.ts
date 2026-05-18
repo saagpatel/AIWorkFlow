@@ -17,6 +17,10 @@ function clientDir(slug: string) {
   return path.join(contentDir(), slug)
 }
 
+export function hasClientContent(slug: string): boolean {
+  return fs.existsSync(path.join(clientDir(slug), "engagement.json"))
+}
+
 export function getClientSlugs(): string[] {
   const dir = contentDir()
   if (!fs.existsSync(dir)) return []

@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest"
 import fs from "fs"
 import {
   getClientSlugs,
+  hasClientContent,
   getEngagement,
   getAutomations,
   getMetrics,
@@ -31,6 +32,18 @@ describe("getClientSlugs", () => {
   it("should return empty array when directory does not exist", () => {
     mockFs.existsSync.mockReturnValue(false)
     expect(getClientSlugs()).toEqual([])
+  })
+})
+
+describe("hasClientContent", () => {
+  it("should return true when the client engagement file exists", () => {
+    mockFs.existsSync.mockReturnValue(true)
+    expect(hasClientContent("acme-corp")).toBe(true)
+  })
+
+  it("should return false when the client engagement file is missing", () => {
+    mockFs.existsSync.mockReturnValue(false)
+    expect(hasClientContent("favicon.ico")).toBe(false)
   })
 })
 
