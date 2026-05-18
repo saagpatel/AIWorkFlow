@@ -1,4 +1,5 @@
-import { getEngagement, getClientSlugs } from "@/lib/content"
+import { notFound } from "next/navigation"
+import { getEngagement, getClientSlugs, hasClientContent } from "@/lib/content"
 import { EngagementCard } from "@/components/engagement-card"
 
 export function generateStaticParams() {
@@ -11,6 +12,10 @@ export default async function EngagementPage({
   params: Promise<{ client: string }>
 }) {
   const { client } = await params
+  if (!hasClientContent(client)) {
+    notFound()
+  }
+
   const engagement = getEngagement(client)
 
   return (
