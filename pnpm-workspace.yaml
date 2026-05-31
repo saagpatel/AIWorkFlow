@@ -6,4 +6,5 @@ packages:
 allowBuilds:
   esbuild: true
 overrides:
+  path-to-regexp: "^8.4.0"
   axios: "^1.15.2"
