@@ -45,16 +45,16 @@ Portal routes:
 ## Current Phase
 **Phase 0: Sales Infrastructure** (Week 0) — OPERATIONAL, no Claude Code needed
 **Phase 1: Delivery Framework + Portfolio** (Weeks 1-2) — Claude Code Sessions 1-2
-- [ ] Build Slack Ticket Triage Bot (triage-bot/)
-- [ ] Build Daily Standup Collector (standup/)
-- [ ] Build Meeting Notes → Action Items tool (meeting-notes/)
-- [ ] Document all 3 templates with setup guides
+- [x] Build Slack Ticket Triage Bot (triage-bot/)
+- [x] Build Daily Standup Collector (standup/)
+- [x] Build Meeting Notes → Action Items tool (meeting-notes/)
+- [x] Document all 3 templates with setup guides
 
 **Phase 2: Client Portal MVP** (Weeks 3-4) — Claude Code Sessions 3-4
-- [ ] Scaffold Next.js portal with App Router + Tailwind + shadcn/ui
-- [ ] Create dynamic client routes (overview, audit, automations, metrics)
-- [ ] Add per-client password protection via middleware
-- [ ] Deploy to Vercel with custom domain
+- [x] Scaffold Next.js portal with App Router + Tailwind + shadcn/ui
+- [x] Create dynamic client routes (overview, audit, automations, metrics)
+- [x] Add per-client password protection via middleware
+- [x] Deploy to Vercel with custom domain
 
 ## Key Decisions Made
 | Decision | Choice | Rationale |
@@ -88,16 +88,16 @@ AIWorkFlow is an active local project in the /Users/d/Projects portfolio.
 
 **Phase 0: Sales Infrastructure** (Week 0) — OPERATIONAL, no Claude Code needed
 **Phase 1: Delivery Framework + Portfolio** (Weeks 1-2) — Claude Code Sessions 1-2
-- [ ] Build Slack Ticket Triage Bot (triage-bot/)
-- [ ] Build Daily Standup Collector (standup/)
-- [ ] Build Meeting Notes → Action Items tool (meeting-notes/)
-- [ ] Document all 3 templates with setup guides
+- [x] Build Slack Ticket Triage Bot (triage-bot/)
+- [x] Build Daily Standup Collector (standup/)
+- [x] Build Meeting Notes → Action Items tool (meeting-notes/)
+- [x] Document all 3 templates with setup guides
 
 **Phase 2: Client Portal MVP** (Weeks 3-4) — Claude Code Sessions 3-4
-- [ ] Scaffold Next.js portal with App Router + Tailwind + shadcn/ui
-- [ ] Create dynamic client routes (overview, audit, automations, metrics)
-- [ ] Add per-client password protection via middleware
-- [ ] Deploy to Vercel with custom domain
+- [x] Scaffold Next.js portal with App Router + Tailwind + shadcn/ui
+- [x] Create dynamic client routes (overview, audit, automations, metrics)
+- [x] Add per-client password protection via middleware
+- [x] Deploy to Vercel with custom domain
 
 ## Stack
 
