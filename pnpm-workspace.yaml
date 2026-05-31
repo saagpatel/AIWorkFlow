@@ -5,3 +5,5 @@ packages:
   - "portal"
 allowBuilds:
   esbuild: true
+overrides:
+  axios: "^1.15.2"
