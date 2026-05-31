@@ -1,9 +1,9 @@
 # AI Workflow Accelerator
 
-## Project Overview
-A productized AI consulting practice with a supporting client portal. The consulting offers three tiers: $1,500 AI Audit (2-hour deep-dive → 5-page report), $3,500-5,000 Implementation Sprint (2 weeks, audit + build 2-3 automations), and $3,000-8,000/mo Retainer (ongoing optimization). The portal is a simple Next.js static site where clients access audit reports, track automation performance metrics, and view engagement status. The portal is NOT the product — the consulting is. The portal professionalizes delivery and reduces repeat support questions.
+Next.js client portal + Slack bots + CLI tools backing an AI consulting practice. The portal professionalizes delivery; the consulting is the product.
 
-## Tech Stack
+## Stack
+
 - Client Portal: Next.js 14.2+ (App Router) on Vercel
 - UI: Tailwind CSS + shadcn/ui
 - Data: Markdown files + JSON (NO database)
@@ -13,6 +13,7 @@ A productized AI consulting practice with a supporting client portal. The consul
 - Key dependencies: next, tailwindcss, @shadcn/ui, recharts, @slack/bolt, @anthropic-ai/sdk
 
 ## Architecture
+
 ```
 /content/clients/{client-slug}/
   audit.md              — Audit report in Markdown
@@ -34,7 +35,22 @@ Portal routes:
 - `/{client-slug}/automations` — Automation list with status badges
 - `/{client-slug}/metrics` — Recharts bar charts (hours saved, automations triggered)
 
-## Development Conventions
+## Build / Run
+
+```bash
+# Client portal (dev)
+cd portal && pnpm dev
+
+# Meeting notes extractor (CLI)
+cd tools/meeting-notes && pnpm extract ./notes.txt
+
+# Slack bots
+cd tools/meeting-notes && pnpm start
+cd slack-bots/triage-bot && pnpm start
+```
+
+## Conventions
+
 - TypeScript for all portal code
 - File naming: kebab-case for files, PascalCase for components
 - Git commit format: `type(scope): description` (e.g., `feat(portal): add metrics chart page`)
@@ -42,21 +58,8 @@ Portal routes:
 - Static generation only — use `generateStaticParams` for client routes
 - Password protection via Next.js middleware + env vars (one password per client)
 
-## Current Phase
-**Phase 0: Sales Infrastructure** (Week 0) — OPERATIONAL, no Claude Code needed
-**Phase 1: Delivery Framework + Portfolio** (Weeks 1-2) — Claude Code Sessions 1-2
-- [x] Build Slack Ticket Triage Bot (triage-bot/)
-- [x] Build Daily Standup Collector (standup/)
-- [x] Build Meeting Notes → Action Items tool (meeting-notes/)
-- [x] Document all 3 templates with setup guides
+## Key Decisions
 
-**Phase 2: Client Portal MVP** (Weeks 3-4) — Claude Code Sessions 3-4
-- [x] Scaffold Next.js portal with App Router + Tailwind + shadcn/ui
-- [x] Create dynamic client routes (overview, audit, automations, metrics)
-- [x] Add per-client password protection via middleware
-- [x] Deploy to Vercel with custom domain
-
-## Key Decisions Made
 | Decision | Choice | Rationale |
 |----------|--------|-----------|
 | Database | NONE — Markdown + JSON files | <20 clients, no dynamic data, static generation |
@@ -68,14 +71,14 @@ Portal routes:
 | Charting | Recharts | Lightweight, React-native, good for simple bar/line charts |
 | Portal deploy | Vercel | One-click deploy, custom domain, env vars for passwords |
 
-## Do NOT
-- Do NOT add a database. If you find yourself writing `CREATE TABLE` or installing Supabase/Prisma, STOP and reassess. Client data is Markdown + JSON files.
-- Do NOT build a CRM, admin panel, or "consulting platform." Notion handles CRM. The portal is static files only.
-- Do NOT use server components for the portal. Static generation via `generateStaticParams` is sufficient.
-- Do NOT store client credentials or API keys. All automations deploy in the CLIENT's accounts.
-- Do NOT scope creep the portal into a SaaS product. It exists to look professional, not to generate recurring revenue.
-- Do NOT build all 20 Playbook templates — only build 3 (triage bot, standup collector, meeting notes) as portfolio pieces. The other 17 are documented approaches only.
-- Do NOT use raw HTTP for Slack bots. Use Slack Bolt SDK exclusively.
+## Constraints
+
+- **No database**: client data is Markdown + JSON files only; `CREATE TABLE` or Supabase/Prisma installs require a stop and reassess.
+- **No server components**: use `generateStaticParams` for static generation — server components are not needed.
+- **No stored credentials**: all automations deploy in the CLIENT's accounts; never store client API keys here.
+- **Portal scope**: the portal is static files for professional delivery, not a SaaS product or admin panel; Notion handles CRM.
+- **Playbook templates**: implement 3 only (triage bot, standup collector, meeting notes) as portfolio pieces; the other 17 are documented approaches, not builds.
+- **Slack bots**: use Slack Bolt SDK exclusively; raw HTTP Slack integration is not used.
 
 <!-- portfolio-context:start -->
 # Portfolio Context
