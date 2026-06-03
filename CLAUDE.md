@@ -27,6 +27,9 @@ Next.js client portal + Slack bots + CLI tools backing an AI consulting practice
 
 /tools/
   meeting-notes/        — Claude API script: raw notes → action items + Slack post
+
+/packages/
+  shared/               — @aiworkflow/shared: Anthropic client + Slack formatting utilities
 ```
 
 Portal routes:
@@ -47,6 +50,7 @@ cd tools/meeting-notes && pnpm extract ./notes.txt
 # Slack bots
 cd tools/meeting-notes && pnpm start
 cd slack-bots/triage-bot && pnpm start
+cd slack-bots/standup && pnpm start
 ```
 
 ## Conventions
@@ -124,6 +128,7 @@ cd tools/meeting-notes && pnpm extract ./notes.txt
 # Slack bots
 cd tools/meeting-notes && pnpm start
 cd slack-bots/triage-bot && pnpm start
+cd slack-bots/standup && pnpm start
 ```
 
 ## Known Risks
