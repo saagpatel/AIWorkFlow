@@ -5,6 +5,7 @@ packages:
   - "portal"
 allowBuilds:
   esbuild: true
+  sharp: true
 overrides:
   path-to-regexp: "^8.4.0"
   axios: "^1.15.2"
