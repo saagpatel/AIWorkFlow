@@ -7,12 +7,11 @@ function getSheetsClient(config: Config) {
     return null
   }
 
-  const auth = new google.auth.JWT(
-    config.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-    undefined,
-    config.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-    ['https://www.googleapis.com/auth/spreadsheets'],
-  )
+  const auth = new google.auth.JWT({
+    email: config.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+    key: config.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+  })
 
   return { sheets: google.sheets({ version: 'v4', auth }), spreadsheetId: config.GOOGLE_SHEETS_SPREADSHEET_ID }
 }

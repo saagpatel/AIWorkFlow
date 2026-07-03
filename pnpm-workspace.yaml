@@ -9,3 +9,4 @@ allowBuilds:
 overrides:
   path-to-regexp: "^8.4.0"
   axios: "^1.15.2"
+  "@slack/web-api": "^7.18.0"
