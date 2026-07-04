@@ -6,7 +6,8 @@
     "test": "vitest run && pnpm --filter @aiworkflow/portal test",
     "test:watch": "vitest",
     "typecheck": "tsc --build",
-    "lint": "node scripts/lint.mjs"
+    "lint": "node scripts/lint.mjs",
+    "smoke:portal": "node scripts/smoke-portal.mjs"
   },
   "devDependencies": {
     "next": "^15.5.16",
