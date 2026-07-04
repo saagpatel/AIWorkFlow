@@ -22,6 +22,12 @@ Prioritize these risks:
 - docs that claim deploy readiness, smoke coverage, or rollback safety without
   matching code or scripts
 
+For portal UI PRs, review the changed workflow across auth/unlock state,
+mobile layout, loading/empty/error states, keyboard focus, accessible labels,
+and Vercel deployment assumptions. Treat UI that hides auth failure, implies a
+workflow ran when it did not, clips client-facing content, or lacks a matching
+portal build/smoke path as merge-relevant.
+
 For docs-only PRs, comment only when a doc claim is false, unsupported,
 missing linked evidence, or inconsistent with current commands, Vercel config,
 portal behavior, or integration boundaries.
