@@ -1,6 +1,7 @@
 {
   "name": "aiworkflow",
   "private": true,
+  "packageManager": "pnpm@11.9.0",
   "scripts": {
     "test": "vitest run && pnpm --filter @aiworkflow/portal test",
     "test:watch": "vitest",

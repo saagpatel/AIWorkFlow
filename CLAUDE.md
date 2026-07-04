@@ -4,7 +4,7 @@ Next.js client portal + Slack bots + CLI tools backing an AI consulting practice
 
 ## Stack
 
-- Client Portal: Next.js 14.2+ (App Router) on Vercel
+- Client Portal: Next.js 15.5+ (App Router) on Vercel
 - UI: Tailwind CSS + shadcn/ui
 - Data: Markdown files + JSON (NO database)
 - Charts: Recharts (for automation metrics)
@@ -61,6 +61,7 @@ cd slack-bots/standup && pnpm start
 - All client data goes in `/content/clients/` — never hardcode client info in components
 - Static generation only — use `generateStaticParams` for client routes
 - Password protection via Next.js middleware + env vars (one password per client)
+- Vercel deploy env vars use `CLIENT_PASSWORD_{SLUG_UPPERCASED_WITH_UNDERSCORES}` (for example, `CLIENT_PASSWORD_ACME_CORP`)
 
 ## Key Decisions
 
@@ -108,7 +109,7 @@ AIWorkFlow is an active local project in the /Users/d/Projects portfolio.
 
 ## Stack
 
-- Client Portal: Next.js 14.2+ (App Router) on Vercel
+- Client Portal: Next.js 15.5+ (App Router) on Vercel
 - UI: Tailwind CSS + shadcn/ui
 - Data: Markdown files + JSON (NO database)
 - Charts: Recharts (for automation metrics)

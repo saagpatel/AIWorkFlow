@@ -70,7 +70,7 @@ This phase is entirely operational. Set up Calendly, Typeform, Notion CRM, SOW t
 **Scope:** Initialize the Next.js portal with all 4 client routes rendering from file-based data.
 
 **Tasks:**
-1. Initialize Next.js 14.2+ project in `portal/` with App Router, TypeScript, Tailwind CSS, shadcn/ui
+1. Initialize Next.js 15.5+ project in `portal/` with App Router, TypeScript, Tailwind CSS, shadcn/ui
 2. Create sample client data in `portal/content/clients/acme-corp/`:
    - `engagement.json` — sample engagement data
    - `audit.md` — sample audit report (use the template from the implementation plan)
@@ -98,7 +98,7 @@ This phase is entirely operational. Set up Calendly, Typeform, Notion CRM, SOW t
 **Scope:** Add password protection, deploy to Vercel, add branding.
 
 **Tasks:**
-1. Create `portal/middleware.ts` — check request path for client slug, validate against env var `CLIENT_{SLUG}_PASSWORD` via basic auth or cookie
+1. Create `portal/middleware.ts` — check request path for client slug, validate against env var `CLIENT_PASSWORD_{SLUG_UPPERCASED_WITH_UNDERSCORES}` via basic auth or cookie
 2. Add login page or basic auth prompt for password entry
 3. Add footer to shared layout: "Powered by [Your Name] — AI Workflow Accelerator" with Calendly booking link
 4. Create `scripts/new-client.sh` or document a Notion checklist for adding new clients: create folder → copy templates → fill data → add env var → deploy

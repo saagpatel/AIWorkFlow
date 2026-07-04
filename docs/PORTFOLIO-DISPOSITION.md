@@ -1,7 +1,7 @@
 # AI Workflow Accelerator — Portfolio Disposition
 
 **Status:** Active (operator-tool monorepo with external client
-surface) — pnpm monorepo containing **Next.js 14 client portal**
+surface) — pnpm monorepo containing **Next.js 15 client portal**
 + **two Claude-backed Slack bots** (meeting-notes extractor +
 ticket triage) + **CLI tool** + shared `@aiworkflow/shared`
 Anthropic / Slack utilities package, on `origin/main`. Multi-
@@ -42,7 +42,7 @@ AI Workflow Accelerator is a **pnpm monorepo** of AI-powered
 client-work automation tools built for the operator's consulting
 practice. Four surfaces:
 
-1. **`portal/`** — Next.js 14 password-protected client dashboard.
+1. **`portal/`** — Next.js 15 password-protected client dashboard.
    Engagement status, audit reports, Recharts visualizations.
    Targets Vercel (static-host cluster member by surface).
 2. **`tools/meeting-notes/`** — Claude-backed extractor: paste raw
@@ -179,7 +179,7 @@ setup).
 |---|---|
 | `origin/main` tip | `c8ff365` chore: migrate to current Anthropic model ID (#13) |
 | Default branch | `main` |
-| Build system | pnpm monorepo + Next.js 14 + TypeScript + Anthropic SDK + Slack Bolt SDK + Recharts |
+| Build system | pnpm monorepo + Next.js 15 + TypeScript + Anthropic SDK + Slack Bolt SDK + Recharts |
 | Architecture | **Multi-surface monorepo**: `portal/` (Next.js, Vercel) + `tools/meeting-notes/` (CLI + Slack bot) + `slack-bots/triage-bot/` (Slack bot) + `packages/shared/` (Anthropic + Slack utilities) |
 | Distribution | **Multi-surface**: Vercel (portal) + service host (Slack bots) + operator-local (CLI) |
 | Audience | **Operator** (consulting practice) + **clients** (via portal) — hybrid internal/external |

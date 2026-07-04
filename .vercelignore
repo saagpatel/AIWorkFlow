@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+.next/
+portal/.next/
+.turbo/
+.worktrees/
+.DS_Store
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+!portal/.env.example
+!slack-bots/*/.env.example
+!tools/*/.env.example
+.claude/
+CLAUDE.md.bak
