@@ -1,5 +1,11 @@
 import { describe, it, expect } from "vitest"
-import { isPublicPath, extractClientSlug, slugToEnvKey } from "./middleware"
+import {
+  isPublicPath,
+  extractClientSlug,
+  slugToEnvKey,
+  isAuthorizedClient,
+} from "./middleware"
+import { createAuthToken } from "./lib/auth-token"
 
 describe("isPublicPath", () => {
   it("should return true for root path", () => {
@@ -57,6 +63,34 @@ describe("slugToEnvKey", () => {
   it("should handle multi-hyphen slugs", () => {
     expect(slugToEnvKey("my-big-company")).toBe(
       "CLIENT_PASSWORD_MY_BIG_COMPANY"
+    )
+  })
+})
+
+describe("isAuthorizedClient", () => {
+  it("accepts a signed token for the matching client password", async () => {
+    const token = await createAuthToken("acme-corp", "secret")
+
+    await expect(
+      isAuthorizedClient("acme-corp", token, {
+        CLIENT_PASSWORD_ACME_CORP: "secret",
+      })
+    ).resolves.toBe(true)
+  })
+
+  it("rejects guessed legacy cookie values", async () => {
+    await expect(
+      isAuthorizedClient("acme-corp", "authenticated", {
+        CLIENT_PASSWORD_ACME_CORP: "secret",
+      })
+    ).resolves.toBe(false)
+  })
+
+  it("rejects missing client passwords", async () => {
+    const token = await createAuthToken("acme-corp", "secret")
+
+    await expect(isAuthorizedClient("acme-corp", token, {})).resolves.toBe(
+      false
     )
   })
 })

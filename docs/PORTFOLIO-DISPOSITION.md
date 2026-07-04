@@ -105,10 +105,10 @@ Operator-tool cluster reaches 2 members with sub-shape structure.
 This is operator-internal infrastructure, so "ship public" doesn't
 quite apply. Operational concerns:
 
-1. **Portal hosting** — Vercel deploy for `portal/`. Password
-   protection mechanism (Basic Auth via middleware, or NextAuth
-   with single shared account, or Vercel Password Protection at
-   the project level — operator decision).
+1. **Portal hosting** — Vercel production deploy is active at
+   `https://aiworkflow-portal.vercel.app`. Password protection uses
+   the existing Next.js middleware + per-client
+   `CLIENT_PASSWORD_*` variables.
 2. **Slack bot hosting** — long-running. Options:
    - **Fly.io / Railway**: cheap, simple, scale to zero.
    - **Self-hosted on operator infrastructure**: more control,
@@ -166,7 +166,7 @@ setup).
    - `cd tools/meeting-notes && pnpm extract ./sample.txt` (CLI)
    - `cd slack-bots/triage-bot && pnpm start` (with valid Slack
      credentials)
-4. **Decide deployment plan** for portal + bots before further
+4. **Decide deployment plan** for Slack bots before further
    feature work.
 5. **Audit Anthropic spend** by surface; consider per-surface
    API keys if budget attribution matters.
@@ -177,7 +177,7 @@ setup).
 
 | Field | Value |
 |---|---|
-| `origin/main` tip | `c8ff365` chore: migrate to current Anthropic model ID (#13) |
+| `origin/main` tip | `1b66345` Add portal smoke check |
 | Default branch | `main` |
 | Build system | pnpm monorepo + Next.js 15 + TypeScript + Anthropic SDK + Slack Bolt SDK + Recharts |
 | Architecture | **Multi-surface monorepo**: `portal/` (Next.js, Vercel) + `tools/meeting-notes/` (CLI + Slack bot) + `slack-bots/triage-bot/` (Slack bot) + `packages/shared/` (Anthropic + Slack utilities) |

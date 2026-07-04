@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
+import { isValidAuthToken } from "@/lib/auth-token"
 
 const PUBLIC_PATHS = ["/", "/unlock"]
 
@@ -19,7 +20,17 @@ export function slugToEnvKey(slug: string): string {
   return `CLIENT_PASSWORD_${slug.replace(/-/g, "_").toUpperCase()}`
 }
 
-export function middleware(request: NextRequest) {
+export async function isAuthorizedClient(
+  slug: string,
+  token: string | undefined,
+  env: Record<string, string | undefined> = process.env
+): Promise<boolean> {
+  const password = env[slugToEnvKey(slug)]
+  if (!password) return false
+  return isValidAuthToken(slug, password, token)
+}
+
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   if (isPublicPath(pathname)) {
@@ -36,7 +47,7 @@ export function middleware(request: NextRequest) {
   const cookieName = `portal_auth_${slug}`
   const authCookie = request.cookies.get(cookieName)
 
-  if (authCookie?.value === "authenticated") {
+  if (await isAuthorizedClient(slug, authCookie?.value)) {
     return NextResponse.next()
   }
 
