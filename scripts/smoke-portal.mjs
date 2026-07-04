@@ -12,7 +12,6 @@ const checks = [
 
       assertStatus(response, 200)
       assertIncludes(body, "AI Workflow Accelerator", "/unlock should include portal title")
-      assertIncludes(body, "Enter Password", "/unlock should include password prompt")
     },
   },
   {

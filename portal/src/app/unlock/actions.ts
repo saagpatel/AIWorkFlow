@@ -1,6 +1,7 @@
 "use server"
 
 import { cookies } from "next/headers"
+import { createAuthToken } from "@/lib/auth-token"
 
 export async function unlockClient(
   _prevState: { error?: string } | null,
@@ -25,8 +26,9 @@ export async function unlockClient(
     return { error: "Incorrect password." }
   }
 
+  const authToken = await createAuthToken(clientSlug, expected)
   const cookieStore = await cookies()
-  cookieStore.set(`portal_auth_${clientSlug}`, "authenticated", {
+  cookieStore.set(`portal_auth_${clientSlug}`, authToken, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
