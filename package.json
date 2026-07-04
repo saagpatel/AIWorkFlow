@@ -5,7 +5,7 @@
     "test": "vitest run && pnpm --filter @aiworkflow/portal test",
     "test:watch": "vitest",
     "typecheck": "tsc --build",
-    "lint": "echo 'TODO: add eslint'"
+    "lint": "node scripts/lint.mjs"
   },
   "devDependencies": {
     "next": "^15.5.16",
