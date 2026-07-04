@@ -60,7 +60,8 @@ Tracked deploy contract:
 
 - Build command: `pnpm --filter @aiworkflow/portal build`
 - Install command: `pnpm install --frozen-lockfile`
-- Output directory: Vercel auto-detects Next.js output; do not override to `.next`
+- Output directory: `portal/.next` because the root Vercel project builds the
+  `@aiworkflow/portal` workspace
 - Required client password env vars follow `CLIENT_PASSWORD_{SLUG_UPPERCASED_WITH_UNDERSCORES}` format, for example `CLIENT_PASSWORD_ACME_CORP`
 
 Readiness checks:
