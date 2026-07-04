@@ -2,5 +2,6 @@
   "buildCommand": "pnpm --filter @aiworkflow/portal build",
   "devCommand": "pnpm --filter @aiworkflow/portal dev",
   "framework": "nextjs",
-  "installCommand": "pnpm install --frozen-lockfile"
+  "installCommand": "pnpm install --frozen-lockfile",
+  "outputDirectory": "portal/.next"
 }
