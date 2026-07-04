@@ -11,14 +11,14 @@ A monorepo of AI-powered tools for client-facing automation workflows. A passwor
 - **Meeting notes extractor** — paste raw notes, get structured action items with owners and due dates via Claude
 - **Triage bot** — incoming Slack tickets automatically classified and routed to the right channel
 - **Daily standup collector** — DMs team members on a cron schedule, collects yesterday/today/blockers, posts a formatted summary; optionally logs to Google Sheets
-- **Client portal** — Next.js 14 dashboard with engagement status, audit reports, and Recharts visualizations
+- **Client portal** — Next.js 15 dashboard with engagement status, audit reports, and Recharts visualizations
 - **Google Tasks integration** — action items sync directly to Google Tasks
 - **Shared workspace package** — single Anthropic client and Slack formatting layer across all tools
 
 ## Quick Start
 
 ### Prerequisites
-- Node.js 18+, pnpm 9+
+- Node.js 22+, pnpm 11.9.0
 - Anthropic API key
 - Slack app credentials (Bot Token + App Token)
 
@@ -45,12 +45,30 @@ cd slack-bots/standup && pnpm start
 
 | Layer | Technology |
 |-------|------------|
-| Portal | Next.js 14, React 18, Tailwind CSS, shadcn/ui |
+| Portal | Next.js 15, React 19, Tailwind CSS, shadcn/ui |
 | Slack bots | @slack/bolt, @slack/web-api |
 | AI | Anthropic Claude (@anthropic-ai/sdk) |
 | Integrations | Google Tasks API (googleapis) |
-| Shared | TypeScript 5.7, Zod, pnpm workspaces |
+| Shared | TypeScript 6, Zod, pnpm workspaces |
 | Testing | Vitest, Testing Library |
+
+## Portal Deployment
+
+The portal is linked to Vercel as `aiworkflow-portal`.
+
+Tracked deploy contract:
+
+- Build command: `pnpm --filter @aiworkflow/portal build`
+- Install command: `pnpm install --frozen-lockfile`
+- Output directory: Vercel auto-detects Next.js output; do not override to `.next`
+- Required client password env vars follow `CLIENT_PASSWORD_{SLUG_UPPERCASED_WITH_UNDERSCORES}` format, for example `CLIENT_PASSWORD_ACME_CORP`
+
+Readiness checks:
+
+```bash
+pnpm --filter @aiworkflow/portal build
+vercel build --prod --yes
+```
 
 ## License
 
