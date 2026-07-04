@@ -65,7 +65,7 @@ This project has 4 phases but only 4 Claude Code sessions total (~8-10 hours). P
 
 ### If resuming in Session 3 (Portal Scaffolding):
 - **Last completed:** Session 2 — Standup collector + meeting notes tool
-- **Next:** Initialize `portal/` with Next.js 14.2+, App Router, Tailwind, shadcn/ui. Create 4 dynamic routes per client. Create sample `acme-corp` data.
+- **Next:** Initialize `portal/` with Next.js 15.5+, App Router, Tailwind, shadcn/ui. Create 4 dynamic routes per client. Create sample `acme-corp` data.
 - **Read first:** `CLAUDE.md` for portal architecture and data model
 
 ### If resuming in Session 4 (Portal Polish + Deploy):

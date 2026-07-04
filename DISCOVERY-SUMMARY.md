@@ -49,7 +49,7 @@ Startups waste 20+ hours/week on manual workflows (ticket triage, standup collec
 - Portal must be statically generated (no SSR, no server components for data)
 - Slack bots must use Slack Bolt SDK (not raw HTTP)
 - All client automations deploy in client's own accounts — never store their credentials
-- Portal passwords stored as Vercel environment variables (e.g., `CLIENT_ACME_PASSWORD=xyz`)
+- Portal passwords stored as Vercel environment variables (e.g., `CLIENT_PASSWORD_ACME_CORP=xyz`)
 - Maximum 2-3 hours per Claude Code session — each session produces ONE deployable deliverable
 - Total Claude Code time budget: ~8-10 hours across 4 sessions
 
