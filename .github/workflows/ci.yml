@@ -44,5 +44,16 @@ jobs:
       - name: Build portal
         run: pnpm --filter @aiworkflow/portal build
 
+      - name: Smoke portal
+        run: |
+          pnpm --filter @aiworkflow/portal start --hostname 127.0.0.1 --port 3100 &
+          for attempt in {1..30}; do
+            if pnpm smoke:portal http://127.0.0.1:3100; then
+              exit 0
+            fi
+            sleep 1
+          done
+          exit 1
+
       - name: Run tests
         run: pnpm test

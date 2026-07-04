@@ -76,6 +76,8 @@ redirect without using live credentials. To check another environment, pass a
 base URL: `pnpm smoke:portal http://127.0.0.1:3100`. To include authenticated
 audit and metrics pages, set `PORTAL_AUTH_COOKIE` to a valid portal auth cookie.
 
+See `docs/PORTAL-DEPLOYMENT.md` for the production release checklist and rollback pointer.
+
 ## License
 
 MIT
