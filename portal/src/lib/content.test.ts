@@ -9,12 +9,21 @@ import {
   getAuditContent,
 } from "./content"
 
-vi.mock("fs")
+const { mockFs } = vi.hoisted(() => ({
+  mockFs: {
+    existsSync: vi.fn(),
+    readdirSync: vi.fn(),
+    readFileSync: vi.fn(),
+  },
+}))
 
-const mockFs = vi.mocked(fs)
+vi.mock("fs", () => ({
+  default: mockFs,
+  ...mockFs,
+}))
 
 beforeEach(() => {
-  vi.restoreAllMocks()
+  vi.clearAllMocks()
 })
 
 describe("getClientSlugs", () => {

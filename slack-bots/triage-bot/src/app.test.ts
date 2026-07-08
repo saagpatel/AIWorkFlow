@@ -1,10 +1,18 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
+const { mockSlackApp } = vi.hoisted(() => {
+  const mockSlackApp = vi.fn(function () {
+    return {
+      message: vi.fn(),
+      start: vi.fn(),
+    }
+  })
+
+  return { mockSlackApp }
+})
+
 vi.mock('@slack/bolt', () => ({
-  App: vi.fn().mockImplementation(() => ({
-    message: vi.fn(),
-    start: vi.fn(),
-  })),
+  App: mockSlackApp,
 }))
 
 vi.mock('@aiworkflow/shared', () => ({
