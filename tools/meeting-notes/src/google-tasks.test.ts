@@ -2,9 +2,13 @@ import { describe, it, expect, vi } from 'vitest'
 import type { ActionItem } from '@aiworkflow/shared'
 import type { Config } from './config.js'
 
+const mockOAuth2 = vi.fn(function () {
+  return { setCredentials: vi.fn() }
+})
+
 vi.mock('googleapis', () => ({
   google: {
-    auth: { OAuth2: vi.fn().mockImplementation(() => ({ setCredentials: vi.fn() })) },
+    auth: { OAuth2: mockOAuth2 },
     tasks: vi.fn().mockReturnValue({
       tasklists: {
         list: vi.fn().mockResolvedValue({ data: { items: [{ id: 'list1' }] } }),

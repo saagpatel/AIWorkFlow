@@ -1,11 +1,15 @@
 import { describe, it, expect, vi } from 'vitest'
 
-vi.mock('@slack/bolt', () => ({
-  App: vi.fn().mockImplementation(() => ({
+const mockSlackApp = vi.fn(function () {
+  return {
     command: vi.fn(),
     view: vi.fn(),
     start: vi.fn(),
-  })),
+  }
+})
+
+vi.mock('@slack/bolt', () => ({
+  App: mockSlackApp,
 }))
 
 vi.mock('./extractor.js', () => ({

@@ -1,10 +1,14 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
-vi.mock('@slack/bolt', () => ({
-  App: vi.fn().mockImplementation(() => ({
+const mockSlackApp = vi.fn(function () {
+  return {
     message: vi.fn(),
     start: vi.fn(),
-  })),
+  }
+})
+
+vi.mock('@slack/bolt', () => ({
+  App: mockSlackApp,
 }))
 
 vi.mock('@aiworkflow/shared', () => ({
