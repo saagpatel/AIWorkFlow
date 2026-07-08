@@ -1,11 +1,15 @@
 import { describe, it, expect, vi } from 'vitest'
 
-const mockSlackApp = vi.fn(function () {
-  return {
-    command: vi.fn(),
-    view: vi.fn(),
-    start: vi.fn(),
-  }
+const { mockSlackApp } = vi.hoisted(() => {
+  const mockSlackApp = vi.fn(function () {
+    return {
+      command: vi.fn(),
+      view: vi.fn(),
+      start: vi.fn(),
+    }
+  })
+
+  return { mockSlackApp }
 })
 
 vi.mock('@slack/bolt', () => ({

@@ -2,8 +2,12 @@ import { describe, it, expect, vi } from 'vitest'
 import type { ActionItem } from '@aiworkflow/shared'
 import type { Config } from './config.js'
 
-const mockOAuth2 = vi.fn(function () {
-  return { setCredentials: vi.fn() }
+const { mockOAuth2 } = vi.hoisted(() => {
+  const mockOAuth2 = vi.fn(function () {
+    return { setCredentials: vi.fn() }
+  })
+
+  return { mockOAuth2 }
 })
 
 vi.mock('googleapis', () => ({
