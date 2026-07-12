@@ -1,0 +1,8 @@
+# wave-7-user-owned
+# Canonical local verification. This does not deploy or prove Vercel readiness.
+pnpm install --frozen-lockfile
+pnpm test
+pnpm typecheck
+pnpm lint
+pnpm --filter @aiworkflow/portal build
+pnpm smoke:portal
