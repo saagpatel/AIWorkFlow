@@ -90,7 +90,7 @@ cd slack-bots/standup && pnpm start
 
 ## What This Project Is
 
-AIWorkFlow is an active local project in the /Users/d/Projects portfolio.
+AIWorkFlow is an active local project in the ~/Projects portfolio.
 
 ## Current State
 
