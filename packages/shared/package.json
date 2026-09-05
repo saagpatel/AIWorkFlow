@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.117.1",
-    "zod": "^4.4.3"
+    "@anthropic-ai/sdk": "^0.123.0",
+    "zod": "^4.5.4"
   }
 }
