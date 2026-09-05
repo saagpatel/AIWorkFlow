@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@slack/bolt": "^4.7.3",
+    "@slack/bolt": "^5.1.0",
     "@aiworkflow/shared": "workspace:*",
     "zod": "^4.4.3"
   }
