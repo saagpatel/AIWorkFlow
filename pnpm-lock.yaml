@@ -3871,7 +3871,7 @@ snapshots:
 
   '@slack/logger@4.0.1':
     dependencies:
-      '@types/node': 26.2.0
+      '@types/node': 26.4.1
 
   '@slack/logger@5.0.0':
     dependencies:
@@ -3907,7 +3907,7 @@ snapshots:
     dependencies:
       '@slack/logger': 4.0.1
       '@slack/types': 2.22.0
-      '@types/node': 26.2.0
+      '@types/node': 26.4.1
       '@types/retry': 0.12.0
       axios: 1.18.1
       eventemitter3: 5.0.4
