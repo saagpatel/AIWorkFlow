@@ -18,7 +18,7 @@ A monorepo of AI-powered tools for client-facing automation workflows. A passwor
 ## Quick Start
 
 ### Prerequisites
-- Node.js 22+, pnpm 11.9.0
+- Node.js 22.13+ within the 22.x line (CI selects Node 22), pnpm 11.9.0
 - Anthropic API key
 - Slack app credentials (Bot Token + App Token)
 
@@ -32,7 +32,8 @@ pnpm install --frozen-lockfile
 
 ## Local verification
 
-From the repository root, use Node.js 22 (the CI runtime) and the pinned pnpm 11.9.0:
+From the repository root, use Node.js 22.13+ within the 22.x line (CI selects Node 22)
+and the pinned pnpm 11.9.0:
 
 ```bash
 pnpm test                         # root tests, then portal tests
