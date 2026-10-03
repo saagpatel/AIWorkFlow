@@ -4,14 +4,14 @@
 
 > Automate the repetitive parts of client work — meeting notes to action items, tickets to routed queues, all via Slack and Claude.
 
-A monorepo of AI-powered tools for client-facing automation workflows. A password-protected Next.js portal surfaces engagement status and audit reports. Three Claude-backed tools handle the grunt work: a meeting notes extractor, a triage-and-routing bot, and a daily standup collector. A shared `@aiworkflow/shared` package keeps the Anthropic client and Slack utilities in one place.
+A monorepo of AI-powered tools for client-facing automation workflows. A password-protected Next.js portal surfaces engagement status and audit reports. Two Claude-backed tools handle meeting notes extraction and ticket triage and routing; a daily standup collector formats responses without Claude. A shared `@aiworkflow/shared` package keeps the Anthropic client and Slack utilities in one place.
 
 ## Features
 
 - **Meeting notes extractor** — paste raw notes, get structured action items with owners and due dates via Claude
 - **Triage bot** — incoming Slack tickets automatically classified and routed to the right channel
 - **Daily standup collector** — DMs team members on a cron schedule, collects yesterday/today/blockers, posts a formatted summary; optionally logs to Google Sheets
-- **Client portal** — Next.js 15 dashboard with engagement status, audit reports, and Recharts visualizations
+- **Client portal** — Next.js 16 dashboard with engagement status, audit reports, and Recharts visualizations
 - **Google Tasks integration** — action items sync directly to Google Tasks
 - **Shared workspace package** — single Anthropic client and Slack formatting layer across all tools
 
@@ -20,7 +20,7 @@ A monorepo of AI-powered tools for client-facing automation workflows. A passwor
 ### Prerequisites
 - Node.js 22.13+ within the 22.x line (CI selects Node 22), pnpm 11.9.0
 - Anthropic API key
-- Slack app credentials (Bot Token + App Token)
+- Slack app credentials (Bot Token + Signing Secret)
 
 ### Installation
 Run from the repository root. The test, lint, typecheck, and local portal lanes
@@ -76,11 +76,11 @@ cd slack-bots/standup && pnpm start
 
 | Layer | Technology |
 |-------|------------|
-| Portal | Next.js 15, React 19, Tailwind CSS, shadcn/ui |
+| Portal | Next.js 16, React 19, Tailwind CSS, shadcn/ui |
 | Slack bots | @slack/bolt, @slack/web-api |
 | AI | Anthropic Claude (@anthropic-ai/sdk) |
 | Integrations | Google Tasks API (googleapis) |
-| Shared | TypeScript 6, Zod, pnpm workspaces |
+| Shared | TypeScript 7, Zod, pnpm workspaces |
 | Testing | Vitest, Testing Library |
 
 ## Portal Deployment

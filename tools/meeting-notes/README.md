@@ -32,7 +32,7 @@ echo "We discussed caching. Alice will deploy Redis by Friday." | pnpm extract
 
 ## Setup
 
-1. Copy `.env.example` to `.env`
+1. Set the variables listed in `.env.example` in the process environment; `.env` files are not loaded automatically
 2. Set `ANTHROPIC_API_KEY` (required)
 3. Optionally set Slack and Google Tasks vars
 

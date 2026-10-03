@@ -21,7 +21,7 @@ Automatically classifies incoming support messages using Claude AI and routes th
 1. Create a Slack app at https://api.slack.com/apps
 2. Add the required scopes under **OAuth & Permissions**
 3. Install the app to your workspace
-4. Copy `.env.example` to `.env` and fill in values
+4. Set the variables listed in `.env.example` in the process environment; `.env` files are not loaded automatically
 5. Create channels for each category and add the bot
 
 ## Deploy to Railway
