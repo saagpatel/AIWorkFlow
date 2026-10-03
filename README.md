@@ -18,14 +18,45 @@ A monorepo of AI-powered tools for client-facing automation workflows. A passwor
 ## Quick Start
 
 ### Prerequisites
-- Node.js 22+, pnpm 11.9.0
+- Node.js 22.13+ within the 22.x line (CI selects Node 22), pnpm 11.9.0
 - Anthropic API key
 - Slack app credentials (Bot Token + App Token)
 
 ### Installation
+Run from the repository root. The test, lint, typecheck, and local portal lanes
+do not require Slack, Anthropic, or Google credentials; those are for live integrations.
+
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
 ```
+
+## Local verification
+
+From the repository root, use Node.js 22.13+ within the 22.x line (CI selects Node 22)
+and the pinned pnpm 11.9.0:
+
+```bash
+pnpm test                         # root tests, then portal tests
+pnpm typecheck
+pnpm lint
+pnpm --filter @aiworkflow/portal build
+```
+
+For a focused portal change, pass a test file relative to `portal/`, for example
+`pnpm --filter @aiworkflow/portal test src/lib/auth-token.test.ts`.
+For portal smoke, start the built app in a separate terminal:
+
+```bash
+pnpm --filter @aiworkflow/portal start --hostname 127.0.0.1 --port 3100
+```
+
+Then run `pnpm smoke:portal http://127.0.0.1:3100` from the root, with
+`PORTAL_AUTH_COOKIE` unset for the non-secret unlock/redirect checks. Stop the
+local server with Ctrl-C when finished. Bare `pnpm smoke:portal` defaults to
+production; reserve it and the Vercel commands below for an authorized release.
+For changed portal behavior, also check the affected flow locally in a browser:
+auth/unlock, mobile layout, keyboard focus, and loading/empty/error states as
+relevant. Documentation-only changes do not require a browser walkthrough.
 
 ### Usage
 ```bash

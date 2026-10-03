@@ -19,7 +19,8 @@ Open a [GitHub Issue](../../issues/new) with:
 
 ## Development Setup
 
-See the README for installation and setup instructions.
+See the README for installation and [local verification](README.md#local-verification),
+including focused tests and the local portal smoke prerequisite.
 
 ## Code Style
 

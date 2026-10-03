@@ -5,4 +5,6 @@ pnpm test
 pnpm typecheck
 pnpm lint
 pnpm --filter @aiworkflow/portal build
-pnpm smoke:portal
+# Start the built portal separately on 127.0.0.1:3100 before this check.
+# Leave PORTAL_AUTH_COOKIE unset for the non-secret local lane.
+pnpm smoke:portal http://127.0.0.1:3100
