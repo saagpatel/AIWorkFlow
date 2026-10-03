@@ -41,8 +41,11 @@ pnpm test
 pnpm typecheck
 pnpm lint
 pnpm --filter @aiworkflow/portal build
-pnpm smoke:portal
+pnpm smoke:portal http://127.0.0.1:3100
 ```
+
+See [local verification](README.md#local-verification) for installation, the
+local server prerequisite, focused tests, and browser checks.
 
 Do not claim deployment readiness unless the relevant portal build and smoke
 checks have run, or the unrun checks are named plainly.
