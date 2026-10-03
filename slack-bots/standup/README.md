@@ -23,7 +23,7 @@ Automated daily standup collection via Slack modals with optional Google Sheets 
 2. Enable **Interactivity & Shortcuts**, set Request URL to your deploy URL
 3. Add the required scopes under **OAuth & Permissions**
 4. Install the app to your workspace
-5. Copy `.env.example` to `.env` and fill in values
+5. Set the variables listed in `.env.example` in the process environment; `.env` files are not loaded automatically
 
 ## Google Sheets (Optional)
 
