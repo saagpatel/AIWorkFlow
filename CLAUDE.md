@@ -4,7 +4,7 @@ Next.js client portal + Slack bots + CLI tools backing an AI consulting practice
 
 ## Stack
 
-- Client Portal: Next.js 16.3.5 (App Router) on Vercel
+- Client Portal: Next.js 16.3.6 (App Router) on Vercel
 - UI: Tailwind CSS + shadcn/ui
 - Data: Markdown files + JSON (NO database)
 - Charts: Recharts (for automation metrics)
@@ -109,7 +109,7 @@ AIWorkFlow is an active local project in the ~/Projects portfolio.
 
 ## Stack
 
-- Client Portal: Next.js 16.3.5 (App Router) on Vercel
+- Client Portal: Next.js 16.3.6 (App Router) on Vercel
 - UI: Tailwind CSS + shadcn/ui
 - Data: Markdown files + JSON (NO database)
 - Charts: Recharts (for automation metrics)
