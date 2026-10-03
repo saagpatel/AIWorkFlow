@@ -10,7 +10,7 @@
     "smoke:portal": "node scripts/smoke-portal.mjs"
   },
   "devDependencies": {
-    "next": "^16.3.5",
+    "next": "^16.3.6",
     "typescript": "7.0.2",
     "vitest": "^4.1.10",
     "tsx": "^4.23.13"
