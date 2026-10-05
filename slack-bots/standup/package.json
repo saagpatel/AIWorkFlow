@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@slack/bolt": "^5.1.0",
-    "@slack/web-api": "^8.1.1",
+    "@slack/web-api": "^8.2.0",
     "@aiworkflow/shared": "workspace:*",
     "googleapis": "^178.0.0",
     "node-cron": "^4.6.0",
